@@ -18,36 +18,36 @@ Vagrant.configure("2") do |config|
     end
 
     #Setting up DB
-    config.vm.define "DB" do |DB|
-        DB.vm.box = "generic/oracle7"
-        DB.vm.hostname = 'puppetmaster'
-        DB.vm.box.url  = "generic/oracle7"
+    config.vm.define "db" do |db|
+        db.vm.box = "generic/oracle7"
+        db.vm.hostname = 'puppetmaster'
+        db.vm.box.url  = "generic/oracle7"
 
-        #Network Settings for DB
-        DB.vm.network :private_network, ip: "192.168.40.100"
+        #Network Settings for db
+        db.vm.network :private_network, ip: "192.168.40.100"
 
         #VM Settings for Oracle Linux Host
-        DB.vm.provider :virtualbox do |v|
+        db.vm.provider :virtualbox do |v|
             v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
             v.customize ["modifyvm", :id, "--memory", 512]
-            v.customize ["modifyvm", :id, "--name", "DB"]
+            v.customize ["modifyvm", :id, "--name", "db"]
         end
     end
 
-    #Setting up WebLogic
-    config.vm.define "WebLogic" do |WebLogic|
-        WebLogic.vm.box = "generic/oracle7"
-        WebLogic.vm.hostname = 'puppetmaster'
-        WebLogic.vm.box.url  = "generic/oracle7"
+    #Setting up weblogic
+    config.vm.define "weblogic" do |weblogic|
+        weblogic.vm.box = "generic/oracle7"
+        weblogic.vm.hostname = 'puppetmaster'
+        weblogic.vm.box.url  = "generic/oracle7"
 
         #Network Settings for WebLogic
-        WebLogic.vm.network :private_network, ip: "192.168.40.100"
+        weblogic.vm.network :private_network, ip: "192.168.40.100"
 
         #VM Settings for Oracle Linux Host
-        WebLogic.vm.provider :virtualbox do |v|
+        weblogic.vm.provider :virtualbox do |v|
             v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
             v.customize ["modifyvm", :id, "--memory", 512]
-            v.customize ["modifyvm", :id, "--name", "WebLogic"]
+            v.customize ["modifyvm", :id, "--name", "weblogic"]
         end
     end
 end
