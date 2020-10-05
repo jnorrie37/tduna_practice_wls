@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
     config.vm.define "puppetmaster" do |puppetmaster|
         puppetmaster.vm.box = "generic/oracle7"
         puppetmaster.vm.hostname = 'puppetmaster'
-        puppetmaster.vm.box.url  = "generic/oracle7"
+        puppetmaster.vm.box.url = "generic/oracle7"
 
         #Network Settings for Puppet Master
         puppetmaster.vm.network :private_network, ip: "192.168.40.100"
@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
     config.vm.define "db" do |db|
         db.vm.box = "generic/oracle7"
         db.vm.hostname = 'puppetmaster'
-        db.vm.box.url  = "generic/oracle7"
+        db.vm.box.url = "generic/oracle7"
 
         #Network Settings for db
         db.vm.network :private_network, ip: "192.168.40.100"
@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
     config.vm.define "weblogic" do |weblogic|
         weblogic.vm.box = "generic/oracle7"
         weblogic.vm.hostname = 'puppetmaster'
-        weblogic.vm.box.url  = "generic/oracle7"
+        weblogic.vm.box.url = "generic/oracle7"
 
         #Network Settings for WebLogic
         weblogic.vm.network :private_network, ip: "192.168.40.100"
